@@ -1,0 +1,135 @@
+Upggift 166 Telefonregister
+Noah Zekkar
+
+
+Beskrivning:
+    Programmet ska hantera ett Telefonregister
+    Användaren ska kunna läsa in register från en fil
+    Söka på olika uppgifter
+    Lägga till nya uppgifter
+    Ta bort uppgifter
+    Ändra uppgifter utan att behöva ändra alla kopplade uppgifter
+    Sortera en utskrift/register
+    Användaren ska också kunna jämföra mellan register
+    Användaren ska kunna få upp hjälp
+    Skriva över allt på en fil innan programmet avslutas
+
+
+Algoritm:
+    1. Filen med alla register läses in
+        * Tanken är att alla registers referenser finns i en fil
+
+    2. Användaren får välja något av följande:
+        * Välja ett register att genomföra något i  (listar alla register) (a)
+        * Skapa nytt register
+        * Ta bort register
+        * Jämföra två register (b)
+        * Be om hjälp
+
+    3.a Programmet låter användaren genomföra något av följande i 
+    valda registret:
+        * Söka efter person
+        * Ändra i registret
+        * Lägga till i registret
+        * Ta bort i registret
+        * Sortera på något (Förnamn, Efternamn, Boende)
+
+    3.b Programmet låter användaren genomföra något mellan registrerna
+        * Lista alla som finns i båda registrerna
+        * Lista alla som finns i något av registrerna utan dubletter
+
+    4. När användaren avslutar programmet skrivs all information 
+    över på fil
+
+
+Datastruktur:
+    Textfilen ska innehålla personer på rader enligt följande:
+    Förnamn; Efternamn; Telefonnummer; E-mail; Adress
+
+    En textfil ska innehålla alla textfilers namn
+
+
+Klasser:
+    En klass för att skapa en person
+    
+        Attribut:
+            Förnamn         En sträng med förnamn
+            Efternamn       En sträng med efternamn
+            Telefonnummer   En sträng med telefonnummer
+            E-post          En sträng med e-post
+            Adress          En sträng med adress
+
+        Metoder:
+            * Skapa ny person
+            * Strängskapare
+
+        class Person:
+
+            def __init__(self, förnamn, efternamn, mobil, epost, adress):
+                # Initerar ett obekt från klassen
+                self.förnamn = förnamn
+                self.efternamn = efternamn
+                self.mobil = mobil
+                self.epost = epost
+                self.adress = adress
+
+            def __str__(self):
+                # Strängskapare
+                return f"{self.förnamn}, {self.efternamn}, {self.mobil}, {self.epost}, {self.adress}"
+
+    En klass för ett register
+
+        Attribut:
+            Registernamn    En sträng med registernamnet
+    
+        Metoder:
+            * Skapa nytt register
+            * Jämförelse? __lt__
+            * Söka i registret
+            * Ändra i registret
+            * Lägga till i registret
+            * Ta bort från registret
+            * Sortera i registret
+        
+        class Register:
+
+            def __init__(self, registernamn):
+                # Initerar ett objekt från klassen
+                self.registernamn = registernamn
+                self.personer: list[Person] = []
+
+            def __lt__ eller __gt__
+                # Jämförelsemetod som krävs för sortera_registret()
+
+            def sök_i_registret(self):
+                # Låter användaren söka i registret
+
+            def ändra_i_registret(self):
+                # Låter användaren ändra i registret
+
+            def lägga_till_i_registret(self):
+                # Låter användaren lägga till en person i registret
+
+            def ta_bort_från_registret(self):
+                # Låter användaren ta bort från registerter
+
+            def sortera_registret(self):
+                # Låter användaren sortera registret
+
+
+Funktioner:
+    * Menyval
+    * Läsa in fil från valt register
+    * Hjälp
+    * Lista alla i båda registrerna
+    * Lista alla som finns i något register
+
+
+    def menyval():
+        # Sköter menysystenet i koden
+
+    def läsa_in_fil_från_register():
+        # En funktion vars tanke är att man med en gång ska kunna gå
+
+    def hjälp():
+        # Förklarande text som beskriver hur prgrammet fungerar
