@@ -71,8 +71,7 @@ class Register:
         sök_efternamn = input("Vad heter personen i efternamn? ")
         for p in self.personer:
             if p.efternamn == sök_efternamn:
-                print(f"{p['efternamn']:12} {p['förnamn']:10} {p['mobil']:12} \
-                      {p['epost']:25} {p['adress']}")
+                print(f"{p['efternamn']:12} {p['förnamn']:10} {p['mobil']:12} {p['epost']:25} {p['adress']}")
             print("=" * 80)
         print(f"Ingen person med efternamnet {sök_efternamn} hittades")
 
@@ -92,7 +91,7 @@ class Register:
         """
         print("Ange personuppgifterna: ")
         efternamn = input("Efternamn: ").strip()
-        förnamn = input("Förnamn: ").strip
+        förnamn = input("Förnamn: ").strip()
         mobil = input("Mobilnummer: ").strip()
         epost = input("E-post: ").strip().lower()
         adress = input("Adress: ").strip
@@ -123,10 +122,8 @@ class Register:
         for p in self.personer:
             if p.förnamn == ta_bort_förnamn & p.efternamn == ta_bort_efternamn:
                 self.personer.remove(p)
-                print(f"{p.förnamn} {p.efternamn} har tagits bort från \
-                      {self.registernamn}")
-        print(f"Ingen person med namnet: {ta_bort_förnamn} \
-              {ta_bort_efternamn}, hittades")
+                print(f"{p.förnamn} {p.efternamn} har tagits bort från {self.registernamn}")
+        print(f"Ingen person med namnet: {ta_bort_förnamn} {ta_bort_efternamn}, hittades")
 
     def sortera_registret(self):
         """
@@ -135,22 +132,22 @@ class Register:
         efternamn, adress
         """
         self.personer.sort(key=lambda x: x["efternamn"].lower())
-        print(f"{'Efternamn':12} {'Förnamn':10} {'Mobil':12} \
-              {'Epost':25} {'Adress'}")
+        print(f"{'Efternamn':12} {'Förnamn':10} {'Mobil':12} {'Epost':25} {'Adress'}")
         print("=" * 80)
         for p in self.personer:
             print(f"{p['efternamn']:12} {p['förnamn']:10} {p['mobil']:12} "
                   f"{p['epost']:25} {p['adress']}")
         print("=" * 80)
 
-    def spara_till_registret(self, filnamn):
+    def spara_till_registret(self):
         """
             JOJO
         """
+        filnamn = input("Register: ").strip().lower() + ".txt"
+
         with open(filnamn, "w", encoding="utf-8") as f:
             for p in self.personer:
-                rad = f"{p['efternamn']};{p['förnamn']};{p['mobil']};\
-                    {p['epost']};{p['adress']}\n"
+                rad = f"{p['efternamn']};{p['förnamn']};{p['mobil']};{p['epost']};{p['adress']}\n"
                 f.write(rad)
         print(f"registret sparat i filen {filnamn}")
 

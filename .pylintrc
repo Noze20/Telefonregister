@@ -1,1 +1,2 @@
 disable=C2401:non-ascii-name
+disable=E501:line-too-long
