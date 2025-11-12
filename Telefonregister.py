@@ -94,7 +94,7 @@ class Register:
         förnamn = input("Förnamn: ").strip()
         mobil = input("Mobilnummer: ").strip()
         epost = input("E-post: ").strip().lower()
-        adress = input("Adress: ").strip
+        adress = input("Adress: ").strip()
 
         person = {
             "efternamn": efternamn,
@@ -133,11 +133,10 @@ class Register:
         """
         self.personer.sort(key=lambda x: x["efternamn"].lower())
         print(f"{'Efternamn':12} {'Förnamn':10} {'Mobil':12} {'Epost':25} {'Adress'}")
-        print("=" * 80)
+        print("=" * 90)
         for p in self.personer:
-            print(f"{p['efternamn']:12} {p['förnamn']:10} {p['mobil']:12} "
-                  f"{p['epost']:25} {p['adress']}")
-        print("=" * 80)
+            print(f"{p['efternamn']:12} {p['förnamn']:10} {p['mobil']:12} {p['epost']:25} {p['adress']}")
+        print("=" * 90)
 
     def spara_till_registret(self):
         """
