@@ -62,6 +62,7 @@ Klasser:
         Metoder:
             * Skapa ny person
             * Strängskapare
+                * Strängskaparen måste se ut på ett sådant sätt som beskrivs under visa_registret()
 
         class Person:
 
@@ -100,6 +101,7 @@ Klasser:
 
             def __lt__ eller __gt__
                 # Jämförelsemetod som krävs för sortera_registret()
+		        # Kommer inte fungera när vi hanterar mer. Därför byt ut mot bättre sorteringskod i metoden
 
             def sök_i_registret(self):
                 # Låter användaren söka i registret
@@ -115,6 +117,11 @@ Klasser:
 
             def sortera_registret(self):
                 # Låter användaren sortera registret
+                # Se från __lt__()
+
+            def visa_registret(self):
+                # Se till att formatera det på ett sådant sätt att vi får upp kolunner under en rubrik, så att det är lättare att kolla
+
 
 
 Funktioner:
