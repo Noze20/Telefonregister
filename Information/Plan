@@ -1,4 +1,5 @@
-Börja med att läsa in en fil och printa den
-Lägg till att man inte behöver skriva in .text
+Lägg till metod för normalisering av telefonnumer och eventuellt mail
+    Potentiellt i en felhanteringsfil
 
-Ge den en klass
+
+

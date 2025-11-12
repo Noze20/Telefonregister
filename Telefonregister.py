@@ -154,49 +154,48 @@ class Register:
                 f.write(rad)
         print(f"registret sparat i filen {filnamn}")
 
+    def visa_hela_registret(self):
+        """"""
+
+        if not self.personer:
+            print("Inga att visa")
+        else:
+            for i, p in enumerate(self.personer, start=1):
+                print(f"{i}, {p}")
+
 
 def main():
     """Main"""
 
     registernamn = Register(input("Register: ").strip().lower())
 
+    meny_val = {
+        "1": ("Öppna fil", registernamn.fil_öppning),
+        "2": ("Sök i regitret", registernamn.sök_i_registret),
+        "3": ("Ändra i registret", registernamn.ändra_i_registret),
+        "4": ("Lägg till i registret", registernamn.lägga_till_i_registret),
+        "5": ("Ta bort från registret", registernamn.ta_bort_från_registret),
+        "6": ("Sortera registret", registernamn.sortera_registret),
+        "7": ("Spara registret", registernamn.spara_till_registret),
+        "8": ("Visa alla i registret", registernamn.visa_hela_registret)
+    }
+
+    while True:
+        print("\n Huvudmeny \n")
+        for key, (label, _) in meny_val.items():
+            print(f"{key} {label}")
+        print("q Avsluta")
+
+        val = input("Val: ").strip().lower()
+        if val in meny_val:
+            _, func = meny_val[val]
+            func()
+        elif val == "q":
+            print("Avslutar...")
+            break
+        else:
+            print("Ogiltligt val, försök igen!")
+
 
 if __name__ == "__main__":
     main()
-
-"""
-def menyval():
-
-    register = Register(input("Här"))
-
-    HUVUDMENY = {
-        "title": "Huvudmeny",
-        "choices": {
-            "1": ("Välj ett register, skapa ett register eller ta bort ett register", "MENYA1"),
-            "B": ("Gå till meny B", "MENYB")
-        }
-
-    }
-
-    MENYA1 = {
-        "title": "Registermeny",
-        "choices": {
-            "1": ("")
-        }
-    }
-
-    MENYA2 = {
-        "title": register,
-        "choices": {
-        "1": ("Sök i registret", register.sök_i_registret),
-        "2": ("Lägg till i registret", register.lägga_till_i_registret),
-        "3": ("Sortera regisret", register.sortera_registret),
-        "4": ("Ändra i reggistret", register.ändra_i_registret),
-        "5": ("Ta bort från registret", register.ta_bort_från_registret)
-        }
-    }
-
-    MENYB = {
-
-    }
-"""
