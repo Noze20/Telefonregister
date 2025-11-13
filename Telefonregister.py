@@ -152,18 +152,22 @@ class Register:
 
     def visa_hela_registret(self):
         """"""
-
+        print("=" * 90)
+        for p in self.personer:
+            print(f"{p['efternamn']:12} {p['förnamn']:10} {p['mobil']:12} {p['epost']:25} {p['adress']}")
+        print("=" * 90)
+        """
         if not self.personer:
             print("Inga att visa")
         else:
             for i, p in enumerate(self.personer, start=1):
-                print(f"{i}, {p}")
+                print(f"{i}, {p}") """
 
 
 def main():
     """Main"""
 
-    registernamn = Register(input("Register: ").strip().lower())
+    registernamn = Register(input("Välj register att ändra i: ").strip().lower())
 
     meny_val = {
         "1": ("Öppna fil", registernamn.fil_öppning),
@@ -178,8 +182,8 @@ def main():
 
     while True:
         print("\n Huvudmeny \n")
-        for key, (label, _) in meny_val.items():
-            print(f"{key} {label}")
+        for nyckel, (metod, _) in meny_val.items():
+            print(f"{nyckel} {metod}")
         print("q Avsluta")
 
         val = input("Val: ").strip().lower()
