@@ -1,0 +1,11 @@
+=== När du öppnar programmet får du olika valalternativ: ===
+1 Välj register
+2 Hjälpmenyn (Där du är nu)
+3 Avsluta
+
+
+=== 1 Välj register: ===
+Om du väljer alternativ 1 kommer du vidare till nästa meny där du får olika register
+att välja mellan. Här väljer du något av de register som finns.
+
+När du har valt ditt register finns det olika saker du kan göra

@@ -1,3 +1,5 @@
+import sys
+import Hjälp
 
 
 class Person:
@@ -138,11 +140,11 @@ class Register:
             print(f"{p['efternamn']:12} {p['förnamn']:10} {p['mobil']:12} {p['epost']:25} {p['adress']}")
         print("=" * 90)
 
-    def spara_till_registret(self):
+    def spara_till_registret(self, registernamn):
         """
             JOJO
         """
-        filnamn = input("Register: ").strip().lower() + ".txt"
+        filnamn = registernamn  # Fungerar ej
 
         with open(filnamn, "w", encoding="utf-8") as f:
             for p in self.personer:
@@ -164,8 +166,61 @@ class Register:
                 print(f"{i}, {p}") """
 
 
+def menyloop(titel, meny_val):
+    """"""
+    while True:
+        print(f"\n=== {titel.upper()} ===")
+        for nyckel, (text, _) in meny_val.items():
+            print(f"{nyckel}. {text}")
+        print("X. Tillbaka")    # Få bort från huvudmenyn
+
+        val = input("Välj: ").strip().upper()
+
+        if val == "X":
+            break
+        elif val in meny_val:
+            _, funktion = meny_val[val]
+            funktion()
+        else:
+            print("Ogiltigt val.")
+
+
+def skapa_register_meny(registrerat_objekt):
+    return {
+        "1": ("Öppna fil", registrerat_objekt.fil_öppning),
+        "2": ("Sök i registret", registrerat_objekt.sök_i_registret),
+        "3": ("Ändra i registret", registrerat_objekt.ändra_i_registret),
+        "4": ("Lägg till i registret", registrerat_objekt.lägga_till_i_registret),
+        "5": ("Ta bort från registret", registrerat_objekt.ta_bort_från_registret),
+        "6": ("Sortera registret", registrerat_objekt.sortera_registret),
+        "7": ("Spara registret", registrerat_objekt.spara_till_registret),
+        "8": ("Visa alla i registret", registrerat_objekt.visa_hela_registret)
+    }
+
+
 def main():
-    """Main"""
+
+    fotbollslaget = Register("Fotbollslaget")
+    tennisklubben = Register("Tennisklubben")
+    styrelsen = Register("Styrelsen")
+
+    huvudmeny = {
+        "1": ("Välj register", lambda: menyloop("Listmeny", välj_register)),
+        "?": ("Hjälpmeny", lambda: Hjälp.huvud_hjälp_meny()),
+        "0": ("Avsluta", lambda: sys.exit())
+    }
+
+    välj_register = {
+        "1": ("Fotbollslaget", lambda: menyloop("Fotbollslaget", skapa_register_meny(fotbollslaget))),
+        "2": ("Tennisklubben", lambda: menyloop("Tennisklubben", skapa_register_meny(tennisklubben))),
+        "3": ("Styrelsen", lambda: menyloop("Styrelsen", skapa_register_meny(styrelsen)))
+    }
+
+    menyloop("Huvudmeny", huvudmeny)
+
+
+"""
+def main():
 
     registernamn = Register(input("Välj register att ändra i: ").strip().lower())
 
@@ -195,7 +250,7 @@ def main():
             break
         else:
             print("Ogiltligt val, försök igen!")
-
+"""
 
 if __name__ == "__main__":
     main()

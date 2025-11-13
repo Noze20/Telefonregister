@@ -1,0 +1,30 @@
+=== I ett register kan du göra flera saker ===
+
+=== 1 Öppna en fil: ===
+Om du har en fil med flera kontakter kan du lägga in den direkt i registret.
+Var nogrann med att textfilen är uppbyggd:
+Efternamn, Förnamn, Telefonnummer, E-mail, Adress
+
+=== 2 Sök i registret: ===
+Om du vill söka efter en specifik persons uppgifter söker du på dennes efternamn
+
+=== 3 Ändra i registtret: ===
+
+=== 4 Lägg till i registret: ===
+Om du vill lägga till en person i registret skriver du in uppgifterna som programmet
+frågar efter. Se till att skriva in alla uppfiter. Om du inte har exempelvis adress
+på någon kan du bara skriva *
+
+=== 5 Ta bort från registret ===
+Om du vill ta bort en person skriver du in för och efternamn till personen. 
+Programmet kommer då ta bort personen från registret. 
+OBS!! Detta är irreversibelt!
+
+=== 6 Sortera registret ===
+Om du vill sortera registret kan du göra det på efternamn. När du sen går ur registret
+kommer prgrammet att spara registret sorterat.
+
+=== 7 Spara registret ===
+
+=== 8 Visa alla i registret ===
+Programmet visar alla i registret på den senaste sparade sorteringen
