@@ -1,0 +1,15 @@
+Andersson;Erik;070-12345670;erik.andersson@mail.com;Solvägen 12, Bromma
+Andersson;Anna;070-23456781;anna.johansson@mail.com;Storgatan 5, Bromma
+Karlsson;Johan;070-34567892;johan.karlsson@mail.com;Bäckvägen 7, Bromma
+Nilsson;Maria;070-45678903;maria.nilsson@mail.com;Skogsvägen 3, Göteborg
+Olsson;Peter;070-56789014;peter.olsson@mail.com;Höjdvägen 8, Västerås
+Svensson;Sara;070-67890125;sara.svensson@mail.com;Ängsvägen 11, Linköping
+Berg;Lars;070-78901236;lars.berg@mail.com;Lindgatan 6, Norrköping
+Lind;Karin;070-89012347;karin.lind@mail.com;Ekvägen 4, Helsingborg
+Hansson;Mikael;070-90123458;mikael.hansson@mail.com;Bergsgatan 9, Örebro
+Fredriksson;Elin;070-01234569;elin.fredriksson@mail.com;Torggatan 2, Borås
+Holm;Daniel;070-12345080;daniel.holm@mail.com;Vintervägen 5, Umeå
+Axelsson;Emma;070-23456191;emma.axelsson@mail.com;Sommarvägen 1, Karlstad
+Nyström;Oskar;070-34567202;oskar.nystrom@mail.com;Sjövägen 3, Luleå
+Blom;Hanna;070-45678313;hanna.blom@mail.com;Parkgatan 7, Sundsvall
+Sundberg;Simon;070-56789424;simon.sundberg@mail.com;Skolgatan 10, Gävle

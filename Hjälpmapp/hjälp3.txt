@@ -12,8 +12,7 @@ Om du vill söka efter en specifik persons uppgifter söker du på dennes eftern
 
 === 4 Lägg till i registret: ===
 Om du vill lägga till en person i registret skriver du in uppgifterna som programmet
-frågar efter. Se till att skriva in alla uppfiter. Om du inte har exempelvis adress
-på någon kan du bara skriva *
+frågar efter. Se till att skriva in alla uppfiter.
 
 === 5 Ta bort från registret ===
 Om du vill ta bort en person skriver du in för och efternamn till personen. 

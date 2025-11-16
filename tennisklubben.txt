@@ -1,0 +1,21 @@
+generativ AI
+Alma;Bergström;073-9123456;alma.bergstrom@mail.com;Tallvägen 14, Solna
+Vincent;Lundgren;070-8341299;vincent.lundgren@mail.com;Kustgatan 7, Visby
+Lovisa;Ekholm;072-5579034;lovisa.ekholm@mail.com;Ängsgränd 3, Täby
+Theo;Högberg;076-4442311;theo.hogberg@mail.com;Furuvägen 22, Växjö
+Moa;Sandell;079-1234456;moa.sandell@mail.com;Blomgatan 6, Enköping
+Elliot;Falk;070-6723345;elliot.falk@mail.com;Hamngatan 11, Ystad
+Agnes;Viklund;073-4557890;agnes.viklund@mail.com;Ringvägen 19, Falun
+Leon;Åkesson;076-8234599;leon.akesson@mail.com;Lövstigen 2, Halmstad
+Nora;Marklund;072-9876543;nora.marklund@mail.com;Stenbacken 10, Sundsvall
+Isak;Holmqvist;079-6673452;isak.holmqvist@mail.com;Gränsgatan 5, Nyköping
+Selma;Dahl;070-5563412;selma.dahl@mail.com;Bäckvägen 3, Skellefteå
+Axel;Wikström;073-7892456;axel.wikstrom@mail.com;Skogsgatan 1, Motala
+Meja;Fors;076-4321785;meja.fors@mail.com;Klaraberg 4, Borlänge
+Noel;Strand;070-3448765;noel.strand@mail.com;Bryggaregatan 12, Karlskrona
+Stella;Lindroth;079-9034122;stella.lindroth@mail.com;Vasagatan 8, Lund
+Milo;Nylander;072-7723490;milo.nylander@mail.com;Näckrosvägen 6, Östersund
+Alva;Hedlund;073-6645532;alva.hedlund@mail.com;Forsvägen 5, Kiruna
+Felix;Törngren;076-2349955;felix.torngren@mail.com;Torgvägen 9, Mariestad
+Ines;Wallin;070-8732245;ines.wallin@mail.com;Hagagatan 3, Sala
+Otto;Bäckström;079-3321456;otto.backstrom@mail.com;Parkvägen 2, Jönköping

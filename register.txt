@@ -1,2 +1,3 @@
-Semla;Simon;079-87654321;simsem@kth.se;Testvägen 4, Huddinge
-Mbeki;Lesedi;070-12345678;lesedi23@gmail.com;Klutvägen 3, Bromma
+fotbollsklubben
+tennisklubben
+styrelsen

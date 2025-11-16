@@ -1,0 +1,29 @@
+Lägga till så att klassen minns gamla registret
+
+registerna sparas på en fil
+
+filen öppnas när du väljer registermenyn
+
+programmet läser upp filen som en dictionary, en för varje rad och ger varje
+rad en nyckel
+
+du får välja i två omgångar
+
+registerna skickas till classen Jämför
+
+=========================================================================================
+
+Ändra i projektet enligt följande struktur:
+
+main
+|
+- Register          # Klassen register
+- person            # Klassen person
+- jämförare         # Klassen Jämförare
+- kontroll          # Funktioner som genomför inmatningskontroll
+- filhantering      # Funktioner som hanterar filinhämtning samt skrivning
+
+=========================================================================================
+Problem som återstår med jämför:
+Måste skicka med ett ojekt till klassen
+    Kanske bara använda funktioner
