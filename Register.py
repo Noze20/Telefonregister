@@ -8,7 +8,35 @@ class Register:
     def __init__(self, registernamn):
         self.registernamn = registernamn
         self.personer: list[Person] = []
+        self.öppna_fil_vid_start(registernamn)
 
+    def öppna_fil_vid_start(self, registernamn):
+        """"""
+
+        filnamn = registernamn + ".txt"
+
+        try:
+            with open(filnamn) as f:
+                for rad in f:
+                    delar = rad.strip().split(";")  # Skapar en lista, med nytt element varje ;
+
+                    if len(delar) != 5:     # Tillser att ingen rad är mer än 5 "delar"
+                        print("Felaktig rad, hoppade över", rad)
+                        continue
+
+                    ny_person = {
+                        "efternamn": delar[0].strip(),
+                        "förnamn": delar[1].strip(),
+                        "mobil": delar[2].strip(),
+                        "epost": delar[3].strip(),
+                        "adress": delar[4].strip()
+                    }
+
+                    self.personer.append(ny_person)
+
+        except FileNotFoundError:
+            open (filnamn, "x")
+    
     def fil_öppning(self):
         """
         """
@@ -49,9 +77,9 @@ class Register:
         for p in self.personer:
             if p["efternamn"] == sök_efternamn:
                 if rubrik == False:
-                    print(f"{'Efternamn':12} {'Förnamn':10} {'Mobil':15} {'Epost':25} {'Adress'}")
+                    print(f"{'Efternamn':12} {'Förnamn':12} {'Mobil':15} {'Epost':25} {'Adress'}")
                     rubrik = True
-                print(f"{p['efternamn']:12} {p['förnamn']:10} {p['mobil']:15} {p['epost']:25} {p['adress']}")
+                print(f"{p['efternamn']:12} {p['förnamn']:12} {p['mobil']:15} {p['epost']:25} {p['adress']}")
                 print("=" * 85)
                 hittad = True
 
@@ -167,10 +195,10 @@ class Register:
 
         for p in self.personer:
             if rubrik == False:
-                print(f"{'Efternamn':12} {'Förnamn':10} {'Mobil':15} {'Epost':25} {'Adress'}")
+                print(f"{'Efternamn':12} {'Förnamn':12} {'Mobil':15} {'Epost':25} {'Adress'}")
                 print("=" * 90)
                 rubrik = True
-            print(f"{p['efternamn']:12} {p['förnamn']:10} {p['mobil']:15} {p['epost']:25} {p['adress']}")
+            print(f"{p['efternamn']:12} {p['förnamn']:12} {p['mobil']:15} {p['epost']:25} {p['adress']}")
         print("=" * 90)
 
         if not self.personer:

@@ -1,53 +1,33 @@
 
 class Jämför:
-    def __init__(self, register1, register2):
-        self.register1 = register1
-        self.register2 = register2
 
-    def personer_i_båda(self):
-        
-        register_dict = {}
+    @staticmethod
+    def personer_i_båda(reg1, reg2):
 
-        try:
-            with open("register.txt") as r:
-                for i, rad in enumerate(r, start=1):
-                    register_dict[i] = rad.strip()
-        except Exception as e:
-            print("Fel vid filinläsning", e)
+        set1 = {(tuple(p.values())) for p in reg1.personer}
+        set2 = {(tuple(p.values())) for p in reg2.personer}
 
-        for i in range(2):
-            print("\n===REGISTER===")
-            for radnmmer, registernamn in register_dict.items():
-                print(f"{radnmmer}: {registernamn}")
+        resultat = set1 & set2
 
-            try:
-                val = int(input("Välj ett register: "))
-            except ValueError:
-                print("Ogiltligt val!")
+        print(f"{'Efternamn':12} {'Förnamn':12} {'Mobil':15} {'Epost':25} {'Adress'}")
+        print("=" * 90)
 
-            if val in register_dict:
-                registernamn = register_dict[val]
-                if i == 1:
-                    reg1 = registernamn
-                else:
-                    reg2 = registernamn
-            else:
-                print("Ogiltligt val!")
-        
-        
-        
-        reg1 = {(p["förnamn"], p["efternamn"]) for p in self.register1}
-        reg2 = {(p["förnamn"], p["efternamn"]) for p in self.register2}
+        for förnamn, efternamn, mobil, epost, adress in resultat:
+                print(f"{efternamn:12} {förnamn:12} {mobil:15} {epost:25} {adress}")
+        print("=" * 90)
 
-        alla = reg1 & reg2
+    @staticmethod
+    def unika_i_något(reg1, reg2):
 
-        # Printa ut alla
+        set1 = {(tuple(p.values())) for p in reg1.personer}
+        set2 = {(tuple(p.values())) for p in reg2.personer}
 
-    def unika_i_något(self):
+        resultat = set1 ^ set2
 
-        reg1 = {(p["förnamn"], p["efternamn"]) for p in self.register1}
-        reg2 = {(p["förnamn"], p["efternamn"]) for p in self.register2}
-    
-        alla = reg1 ^ reg2
+        print(f"{'Efternamn':12} {'Förnamn':12} {'Mobil':15} {'Epost':25} {'Adress'}")
+        print("=" * 90)
 
-        # Printa ut alla
+        for förnamn, efternamn, mobil, epost, adress in resultat:
+            print(f"{efternamn:12} {förnamn:12} {mobil:15} {epost:25} {adress}")
+        print("=" * 90)
+
