@@ -1,6 +1,10 @@
 import re
 
 def namn_kontroll(svar):
+    """
+    Ser till att inmatningen är korrekt för namn och byter ut eventuella tecken
+    som inte hanteras av programmet.
+    """
 
     while True:
         testa_namn = str(input(svar).strip())
@@ -21,6 +25,9 @@ def namn_kontroll(svar):
 
 
 def telefon_kontrol(svar):
+    """
+    Kontrollerar så att inmatningen av telefonnummer är korrekt.
+    """
 
     while True:
         testa_nummer = input(svar).strip()
@@ -36,6 +43,11 @@ def telefon_kontrol(svar):
 
 
 def epost_kontroll(svar):
+    """
+    Kontrollerar att inmatningen av e-post är korrekt.
+    OBS! r"^[a-z0-9]+[\._]?[a-z0-9]+[@]\w+[.]\w+$" är kopierat av
+    ZeroBounce.net för att få en korrekt struktur av e-post.
+    """
 
     while True:
         testa_epost = input(svar).strip().lower()
@@ -48,6 +60,9 @@ def epost_kontroll(svar):
 
 
 def adress_kontroll(svar):
+    """
+    Kontrollerar att adressen är korrekt skriven på korrekt format.
+    """
 
     while True:
         testa_adress = str(input(svar)).strip()
@@ -60,6 +75,10 @@ def adress_kontroll(svar):
 
 
 def skapa_fil_kontroll(svar):
+    """
+    Kontrollerar att nya filer till register tillsätts ett namn utan
+    tecken som kan vara problematiska vid skapande av filer.
+    """
 
     while True:
         testa_filnamn = str(input(svar).strip())
@@ -72,6 +91,9 @@ def skapa_fil_kontroll(svar):
                    .replace("å", "a")
                    .replace("ä", "a")
                    .replace("ö", "o")
+                   .replace("Å", "A")
+                   .replace("Ä", "A")
+                   .replace("Ä", "A")
                    .isalpha()
                    )
 

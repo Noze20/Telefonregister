@@ -3,6 +3,7 @@ from Person import Person
 
 class Register:
     """
+    Klassen hanterar register som objekt.
     """
 
     def __init__(self, registernamn):
@@ -11,7 +12,9 @@ class Register:
         self.öppna_fil_vid_start(registernamn)
 
     def öppna_fil_vid_start(self, registernamn):
-        """"""
+        """
+        Öppnar filen kopplad till objektet när någon metod i klassen körs.
+        """
 
         filnamn = registernamn + ".txt"
 
@@ -39,6 +42,7 @@ class Register:
     
     def fil_öppning(self):
         """
+        Öppnar en fil så att användaren kan importera ett register.
         """
         inmatning = input("Filnamn ").lower()
         filnamn = inmatning + ".txt"
@@ -66,6 +70,7 @@ class Register:
 
     def sök_i_registret(self):
         """
+        Låter användaren söka efter en person på efternamn.
         """
         if not self.personer:
             print("Det finns inga personer i detta register")
@@ -87,7 +92,10 @@ class Register:
             print(f"Ingen person med efternamnet {sök_efternamn} hittades")
 
     def ändra_i_registret(self):
-        """"""
+        """
+        Låter användaren ändra uppgifter till en person. Användaren behöver
+        bara skriva in det dem vill. 
+        """
         if not self.personer:
             print("Det finns inga i dethär registret att ändra")
             return
@@ -149,6 +157,7 @@ class Register:
 
     def ta_bort_från_registret(self):
         """
+        Låter användaren ta bort en person från registret.
         """
         if not self.personer:
             print("Det finns inga personer att ta bort från detta registrer")
@@ -164,6 +173,7 @@ class Register:
 
     def sortera_registret(self):
         """
+        Låter användaren sortera registret på efternamn.
         """
         rubrik = False
         self.personer.sort(key=lambda x: x["efternamn"].lower())
@@ -180,6 +190,7 @@ class Register:
 
     def spara_till_registret(self, registernamn):
         """
+        Låter användaren spara registret till .txt filen.
         """
         filnamn = registernamn.registernamn + ".txt"
 
@@ -190,7 +201,9 @@ class Register:
         print(f"registret sparat i filen {filnamn}")
 
     def visa_hela_registret(self):
-        """"""
+        """
+        Låter användaren se hela registret osorterat.
+        """
         rubrik = False
 
         for p in self.personer:
