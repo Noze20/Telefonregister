@@ -216,7 +216,9 @@ def välj_jämförelsemetod_och_kör(reg1_namn, reg2_namn):
 
 def jämför_register_flöde():
     """
-    Högre nivå-flöde: välj två register -> välj metod -> kör jämförelse.
+    Kör funktionen väl_två_register() och ansätter valen till två variabler. Om inga
+    register väljs går programmet tillbaka till huvudmenyn. Om två register väljs körs
+    funktionen välj_jämförelsemetod_och_kör()
     """
     reg1, reg2 = välj_två_register()
     if not reg1 or not reg2:
