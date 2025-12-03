@@ -1,6 +1,12 @@
 """
-
+Program som hanterar flera telefonregister. Användaren kan skapa,
+ändra, söka, sortera och ta bort personer från ett specifikt register.
+Programmet kan även hjälpa användaren att jämföra två olika telefonregister,
+både veta vilka som finns i båda och vilka som finns i något av registerna.
+Programmet är uppbygt utifrån en meny och sparar registrerna och personerna i
+registrerna i textfiler.
 """
+
 import sys
 import Hjälp
 import Kontroll as k
@@ -156,7 +162,7 @@ def skapa_register():
 def välj_två_register():
     """
     Låter användaren välja två olika register från registerlistan.
-    Returnerar tuple (reg1_namn, reg2_namn) eller (None, None) om avbrutet.
+    Returnerar tuple (register1_namn, register2_namn) eller (None, None) om avbrutet.
     """
     register_lista = läs_registerlista()
     if len(register_lista) < 2:
@@ -194,24 +200,23 @@ def välj_två_register():
     return None, None
 
 
-def välj_jämförelsemetod(reg1_namn, reg2_namn):
+def välj_jämförelsemetod(register1_namn, register2_namn):
     """
     Visar jämförelsemetoder och kör vald metod med två register_lista innehåll.
     """
-    if not reg1_namn or not reg2_namn:
+    if not register1_namn or not register2_namn:
         print("Felaktiga register för jämförelse.")
         return
 
-    # Skapa Register-objekt (antas att Register tar hand om att läsa innehåll)
-    r1 = Register(reg1_namn)
-    r2 = Register(reg2_namn)
+    r1 = Register(register1_namn)
+    r2 = Register(register2_namn)
 
     meny = {
         "1": ("Personer i båda registerna", lambda: Jämför.personer_i_båda(r1, r2)),
         "2": ("Personer i något av registerna (unika)", lambda: Jämför.unika_i_något(r1, r2)),
     }
 
-    menyloop(f"Jämför: {reg1_namn} / {reg2_namn}", meny)
+    menyloop(f"Jämför: {register1_namn} / {register2_namn}", meny)
 
 
 def jämför_register():
@@ -220,11 +225,11 @@ def jämför_register():
     register väljs går programmet tillbaka till huvudmenyn. Om två register väljs körs
     funktionen välj_jämförelsemetod()
     """
-    reg1, reg2 = välj_två_register()
-    if not reg1 or not reg2:
+    register1, register2 = välj_två_register()
+    if not register1 or not register2:
         print("Jämförelse avbröts eller misslyckades.")
         return
-    välj_jämförelsemetod(reg1, reg2)
+    välj_jämförelsemetod(register1, register2)
 
 
 def main():

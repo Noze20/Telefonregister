@@ -1,3 +1,4 @@
+generativ AI
 Andersson;Erik;070-12345670;erik.andersson@mail.com;Solvägen 12, Bromma
 Andersson;Anna;070-23456781;anna.johansson@mail.com;Storgatan 5, Bromma
 Karlsson;Johan;070-34567892;johan.karlsson@mail.com;Bäckvägen 7, Bromma
