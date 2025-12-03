@@ -131,7 +131,7 @@ class Register:
                 if ny_adress:
                     p["adress"] = ny_adress
 
-            print(f"Ingen person med namnet: {ändra_person_förnamn} {ändra_person_efternamn}, hittades")
+        print(f"Ingen person med namnet: {ändra_person_förnamn} {ändra_person_efternamn}, hittades")
 
     def lägga_till_i_registret(self):
         """
@@ -191,11 +191,11 @@ class Register:
         if not self.personer:
             print("Inga att visa")
 
-    def spara_till_registret(self, registernamn):
+    def spara_till_registret(self):
         """
         Låter användaren spara registret till .txt filen.
         """
-        filnamn = registernamn + ".txt"
+        filnamn = self.registernamn + ".txt"
 
         with open(filnamn, "w", encoding="utf-8") as f:
             for p in self.personer:

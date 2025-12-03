@@ -1,4 +1,6 @@
+"""
 
+"""
 import sys
 import Hjälp
 import Kontroll as k
@@ -18,11 +20,12 @@ def menyloop(titel, meny_val):
 
     Args:
         titel(str): Namnet på menyn
-        meny_val(dict): uppslagsverk för meny {"str": (text: str, funktion: anropsbar)}
+        meny_val(dict): uppslagsverk för meny {"str": (text: str, funktion(_): anropsbar)}
 
     Returns:
         none
     """
+
     while True:
         print(f"\n=== {titel.upper()} ===")
         for nyckel, (text, _) in meny_val.items():
@@ -36,7 +39,10 @@ def menyloop(titel, meny_val):
             break
         elif val in meny_val:
             _, funktion = meny_val[val]
-            funktion()
+            try:
+                funktion()
+            except Exception as fel:
+                print("Ett fel uppstod", fel)
         else:
             print("Ogiltigt val.")
 
@@ -47,26 +53,25 @@ def läs_registerlista():
     i listan utan mellanslag. Om filen saknas skapas en ny fil med samma namn.
 
     Returns:
-        registren(list): Lista med alla registernamn från REGISTER_FIL
+        register_lista(list): Lista med alla registernamn från REGISTER_FIL
     """
-    registren = []
+    register_lista = []
     try:
-        with open(REGISTER_FIL, encoding=KODNING) as f:
-            for rad in f:
-                register_namn = rad.strip()
+        with open(REGISTER_FIL, encoding=KODNING) as fil:
+            for rader in fil:
+                register_namn = rader.strip()
                 if register_namn:
-                    registren.append(register_namn)
+                    register_lista.append(register_namn)
     except FileNotFoundError:
-        # Skapa filen om den saknas
         open(REGISTER_FIL, "x", encoding=KODNING).close()
-    except Exception as e:
-        print("Fel vid läsning av registerfil:", e)
-    return registren
+    except Exception as fel:
+        print("Fel vid läsning av registerfil:", fel)
+    return register_lista
 
 
 def register_meny(register):
     """
-    Returnerar meny-dict för ett Register-objekt.
+    Returnerar meny uppslagsverk för ett Register-objekt.
     
     Args:
         register(obj): Specifika objektet som ska hanteras av Register-klassen
@@ -94,14 +99,15 @@ def välj_register():
     skapa_register() så att användaren kan skapa ett register. Funktionen avslutas när
     användaren matar in X/x.
     """
-    registren = läs_registerlista()
-    if not registren:
+    register_lista = läs_registerlista()
+    if not register_lista:
         print("Inga register finns. Skapa ett nytt register först.")
         skapa_register()
+        register_lista = läs_registerlista()
 
     while True:
         print("\n=== VÄLJ REGISTER ===")
-        for position, namn in enumerate(registren, start=1):
+        for position, namn in enumerate(register_lista, start=1):
             print(f"{position}: {namn}")
         print("X. Tillbaka")
 
@@ -111,12 +117,11 @@ def välj_register():
 
         if val.isdigit():
             position = int(val) - 1
-            if 0 <= position < len(registren):
-                registernamn = registren[position]
+            if 0 <= position < len(register_lista):
+                registernamn = register_lista[position]
                 register = Register(registernamn)
                 menyloop(f"Register: {registernamn}", register_meny(register))
-                # Återläs listan utifall registerfil ändrats (t.ex. sparats med nytt namn)
-                registren = läs_registerlista()
+                register_lista = läs_registerlista()
             else:
                 print("Ogiltigt val: index utanför spann.")
         else:
@@ -132,32 +137,18 @@ def skapa_register():
         print("Inget giltigt namn angavs.")
         return
 
-    # Skriv till register-listan (endast om det inte redan finns)
-    registren = läs_registerlista()
-    if nytt_register in registren:
+    register_lista = läs_registerlista()
+    if nytt_register in register_lista:
         print(f"Registret '{nytt_register}' finns redan.")
     else:
         try:
             with open(REGISTER_FIL, "a", encoding=KODNING) as r:
-                # Om filen inte var tom, lägg till newline först
-                if registren:
                     r.write("\n" + nytt_register)
-                else:
-                    r.write(nytt_register)
-            print(f"Registret '{nytt_register}' skapades.")
-        except Exception as e:
-            print("Fel vid skapande av register:", e)
+            print(f"Registret {nytt_register} skapades.")
+        except Exception as fel:
+            print("Fel vid skapande av register:", fel)
             return
 
-    # Skapa registerfil om den inte redan finns
-    try:
-        open(nytt_register + ".txt", "x", encoding=KODNING).close()
-    except FileExistsError:
-        pass
-    except Exception as e:
-        print("Fel vid skapande av registerfil:", e)
-
-    # Gå direkt in i registermenyn för det nya registret
     register = Register(nytt_register)
     menyloop(f"Register: {nytt_register}", register_meny(register))
 
@@ -167,17 +158,17 @@ def välj_två_register():
     Låter användaren välja två olika register från registerlistan.
     Returnerar tuple (reg1_namn, reg2_namn) eller (None, None) om avbrutet.
     """
-    registren = läs_registerlista()
-    if len(registren) < 2:
+    register_lista = läs_registerlista()
+    if len(register_lista) < 2:
         print("Minst två register krävs för jämförelse.")
         return None, None
 
-    valda = []
+    valda_register = []
     for i in range(1, 3):
         while True:
             print("\n=== VÄLJ REGISTER FÖR JÄMFÖRELSE ===")
-            for position, namn in enumerate(registren, start=1):
-                marker = "(valt)" if namn in valda else ""
+            for position, namn in enumerate(register_lista, start=1):
+                marker = "(valt)" if namn in valda_register else ""
                 print(f"{position}: {namn} {marker}")
             print("X. Avbryt jämförelse")
 
@@ -188,24 +179,24 @@ def välj_två_register():
                 print("Ogiltigt val. Ange siffra.")
                 continue
             position = int(val) - 1
-            if not (0 <= position < len(registren)):
+            if not (0 <= position < len(register_lista)):
                 print("Ogiltigt index.")
                 continue
-            valt = registren[position]
-            if valt in valda:
+            valt = register_lista[position]
+            if valt in valda_register:
                 print("Du har redan valt detta register. Välj ett annat.")
                 continue
-            valda.append(valt)
+            valda_register.append(valt)
             break
 
-    if len(valda) == 2:
-        return valda[0], valda[1]
+    if len(valda_register) == 2:
+        return valda_register[0], valda_register[1]
     return None, None
 
 
-def välj_jämförelsemetod_och_kör(reg1_namn, reg2_namn):
+def välj_jämförelsemetod(reg1_namn, reg2_namn):
     """
-    Visar jämförelsemetoder och kör vald metod med två registren innehåll.
+    Visar jämförelsemetoder och kör vald metod med två register_lista innehåll.
     """
     if not reg1_namn or not reg2_namn:
         print("Felaktiga register för jämförelse.")
@@ -223,17 +214,17 @@ def välj_jämförelsemetod_och_kör(reg1_namn, reg2_namn):
     menyloop(f"Jämför: {reg1_namn} / {reg2_namn}", meny)
 
 
-def jämför_register_flöde():
+def jämför_register():
     """
     Kör funktionen väl_två_register() och ansätter valen till två variabler. Om inga
     register väljs går programmet tillbaka till huvudmenyn. Om två register väljs körs
-    funktionen välj_jämförelsemetod_och_kör()
+    funktionen välj_jämförelsemetod()
     """
     reg1, reg2 = välj_två_register()
     if not reg1 or not reg2:
         print("Jämförelse avbröts eller misslyckades.")
         return
-    välj_jämförelsemetod_och_kör(reg1, reg2)
+    välj_jämförelsemetod(reg1, reg2)
 
 
 def main():
@@ -244,7 +235,7 @@ def main():
     huvudmeny = {
         "1": ("Välj register", välj_register),
         "2": ("Lägg till register", skapa_register),
-        "3": ("Jämför register", jämför_register_flöde),
+        "3": ("Jämför register", jämför_register),
         "?": ("Hjälpmeny", lambda: Hjälp.huvud_hjälp_meny()),
         "0": ("Avsluta", lambda: sys.exit())
     }
