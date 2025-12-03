@@ -4,6 +4,9 @@ from Person import Person
 class Register:
     """
     Klassen hanterar register som objekt.
+
+    Parameters:
+        registernamn: registrets namn
     """
 
     def __init__(self, registernamn):
@@ -192,7 +195,7 @@ class Register:
         """
         Låter användaren spara registret till .txt filen.
         """
-        filnamn = registernamn.registernamn + ".txt"
+        filnamn = registernamn + ".txt"
 
         with open(filnamn, "w", encoding="utf-8") as f:
             for p in self.personer:

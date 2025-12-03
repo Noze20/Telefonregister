@@ -11,12 +11,17 @@ KODNING = "utf-8"
 
 def menyloop(titel, meny_val):
     """
-    Menyloop som hanterar en dictionary, 
-    där nyckel är en tuple av beskrivande text och funktion. 
+    Menyloop som körs utifrån ett uppslagsverk av menyval.
+
+    Nyckeln i uppslagverket är ett strängval och varje
+    värde är en tuple -> (text: str, funktion) 
 
     Args:
         titel(str): Namnet på menyn
-        meny_val(dict): Dictionary för meny där nyckel -> (text: str, funktion)
+        meny_val(dict): uppslagsverk för meny {"str": (text: str, funktion: anropsbar)}
+
+    Returns:
+        none
     """
     while True:
         print(f"\n=== {titel.upper()} ===")
@@ -38,7 +43,11 @@ def menyloop(titel, meny_val):
 
 def läs_registerlista():
     """
-    Returnerar lista med register-namn från REGISTER_FIL (utan tomma rader).
+    Skapar en lista, öppnar filen register.txt och skriver in varje rad
+    i listan utan mellanslag. Om filen saknas skapas en ny fil med samma namn.
+
+    Returns:
+        registren(list): Lista med alla registernamn från REGISTER_FIL
     """
     registren = []
     try:
@@ -55,15 +64,15 @@ def läs_registerlista():
     return registren
 
 
-def register_meny_factory(register):
+def register_meny(register):
     """
     Returnerar meny-dict för ett Register-objekt.
     
     Args:
-        register: Specifika objektet som ska hanteras av Register-klassen
+        register(obj): Specifika objektet som ska hanteras av Register-klassen
 
     Returns:
-        Ett dictionary för ett Register-objekt
+        Ett uppslagsverk för ett Register-objekt av register
     """
     
     return {
@@ -105,7 +114,7 @@ def välj_register():
             if 0 <= position < len(registren):
                 registernamn = registren[position]
                 register = Register(registernamn)
-                menyloop(f"Register: {registernamn}", register_meny_factory(register))
+                menyloop(f"Register: {registernamn}", register_meny(register))
                 # Återläs listan utifall registerfil ändrats (t.ex. sparats med nytt namn)
                 registren = läs_registerlista()
             else:
@@ -150,7 +159,7 @@ def skapa_register():
 
     # Gå direkt in i registermenyn för det nya registret
     register = Register(nytt_register)
-    menyloop(f"Register: {nytt_register}", register_meny_factory(register))
+    menyloop(f"Register: {nytt_register}", register_meny(register))
 
 
 def välj_två_register():
@@ -240,7 +249,7 @@ def main():
         "0": ("Avsluta", lambda: sys.exit())
     }
 
-    menyloop("Huvudmeny", huvudmeny)
+    menyloop(f"Huvudmeny", huvudmeny)
 
 
 if __name__ == "__main__":
