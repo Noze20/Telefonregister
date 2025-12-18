@@ -1,0 +1,8 @@
+Du kan jämföra två register i telefonregistret.
+
+Börja med att välja två register som du vill jämföra.
+Du kan inte jämföra samma register.
+
+Välj sedan metod som du vill jämföra:
+Du kan se vilka som finns i båda registrerna
+Och vilka som finns i något av registrerna

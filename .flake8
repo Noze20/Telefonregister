@@ -1,4 +1,0 @@
-[flake8]
-ignore = E501
-ignore = E712
-exclude = .git, __pycache__, venv

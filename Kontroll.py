@@ -1,11 +1,11 @@
 import re
 
+
 def namn_kontroll(svar):
     """
     Ser till att inmatningen är korrekt för namn och byter ut eventuella tecken
     som inte hanteras av programmet.
     """
-
     while True:
         testa_namn = str(input(svar).strip())
 
@@ -45,13 +45,12 @@ def telefon_kontrol(svar):
 def epost_kontroll(svar):
     """
     Kontrollerar att inmatningen av e-post är korrekt.
-    OBS! r"^[a-z0-9]+[\._]?[a-z0-9]+[@]\w+[.]\w+$" är kopierat av
-    ZeroBounce.net för att få en korrekt struktur av e-post.
     """
 
     while True:
         testa_epost = input(svar).strip().lower()
-        mönster = r"^[a-z0-9]+[\._]?[a-z0-9]+[@]\w+[.]\w+$"     # ZeroBounce.net
+        mönster = r"^[a-z0-9]+[\._]?[a-z0-9]+[@]\w+[.]\w+$"
+        # ZeroBounce.net
 
         if re.match(mönster, testa_epost):
             return testa_epost
@@ -94,10 +93,9 @@ def skapa_fil_kontroll(svar):
                    .replace("Å", "A")
                    .replace("Ä", "A")
                    .replace("Ä", "A")
-                   .isalpha()
                    )
 
-        if är_okej:
-            return testa_filnamn
+        if är_okej.isalpha():
+            return är_okej
         else:
             print("Felaktigt filnamn")

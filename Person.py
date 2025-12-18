@@ -4,6 +4,11 @@ class Person:
     Skapar en individ
 
     Attribut:
+        efternamn(str):
+        förnamn(str):
+        mobil(str):
+        epost(str):
+        adress(str):
     """
 
     def __init__(self, efternamn, förnamn, mobil, epost, adress):

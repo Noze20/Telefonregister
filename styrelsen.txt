@@ -1,0 +1,16 @@
+Generativ AI
+Elin;Sjöberg;070-9182734;elin.sjoberg@mail.com;Kyrkvägen 7, Alingsås
+Arvid;Norén;073-4456789;arvid.noren@mail.com;Lindallén 4, Katrineholm
+Saga;Blomqvist;072-5567891;saga.blomqvist@mail.com;Ekvägen 12, Åkersberga
+Hugo;Persson;076-3344556;hugo.persson@mail.com;Storgatan 18, Trelleborg
+Vera;Lindahl;079-8877665;vera.lindahl@mail.com;Sjövägen 9, Värnamo
+Oskar;Björk;070-6655443;oskar.bjork@mail.com;Tallgatan 5, Piteå
+Freja;Hansson;073-2211344;freja.hansson@mail.com;Solrosvägen 14, Eslöv
+Elias;Rosenqvist;076-9988776;elias.rosenqvist@mail.com;Brunnsgatan 6, Arboga
+Clara;Nyström;072-4433221;clara.nystrom@mail.com;Backvägen 11, Hudiksvall
+William;Engberg;079-5544332;william.engberg@mail.com;Stationsgatan 2, Flen
+Linn;Kvarnström;070-7788990;linn.kvarnstrom@mail.com;Åkervägen 8, Lidköping
+Anton;Hallberg;073-9900112;anton.hallberg@mail.com;Björkvägen 15, Laholm
+Maja;Ekstrand;076-1122334;maja.ekstrand@mail.com;Villagatan 3, Finspång
+Samuel;Löfgren;072-6677889;samuel.lofgren@mail.com;Rosenvägen 10, Ronneby
+Tindra;Sundqvist;079-4455667;tindra.sundqvist@mail.com;Äppelstigen 1, Säffle

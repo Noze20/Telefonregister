@@ -13,11 +13,14 @@ class Jämför:
 
         resultat = upssättning1 & uppsättning2
 
-        print(f"{'Efternamn':12} {'Förnamn':12} {'Mobil':15} {'Epost':25} {'Adress'}")
+        print(
+            f"{'Efternamn':12} {'Förnamn':12} {'Mobil':15} "
+            f"{'Epost':25} {'Adress'}")
         print("=" * 90)
 
         for efternamn, förnamn, mobil, epost, adress in resultat:
-                print(f"{efternamn:12} {förnamn:12} {mobil:15} {epost:25} {adress}")
+            print(f"{efternamn:12} {förnamn:12} {mobil:15} "
+                  f"{epost:25} {adress}")
         print("=" * 90)
 
     @staticmethod
@@ -32,10 +35,11 @@ class Jämför:
 
         resultat = upsättning1 ^ uppsättning2
 
-        print(f"{'Efternamn':12} {'Förnamn':12} {'Mobil':15} {'Epost':25} {'Adress'}")
+        print(f"{'Efternamn':12} {'Förnamn':12} {'Mobil':15} "
+              f"{'Epost':25} {'Adress'}")
         print("=" * 90)
 
         for efternamn, förnamn, mobil, epost, adress in resultat:
-            print(f"{efternamn:12} {förnamn:12} {mobil:15} {epost:25} {adress}")
+            print(f"{efternamn:12} {förnamn:12} {mobil:15} "
+                  f"{epost:25} {adress}")
         print("=" * 90)
-

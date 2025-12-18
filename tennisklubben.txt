@@ -1,4 +1,4 @@
-generativ AI
+Generativ AI
 Alma;Bergström;073-9123456;alma.bergstrom@mail.com;Tallvägen 14, Solna
 Vincent;Lundgren;070-8341299;vincent.lundgren@mail.com;Kustgatan 7, Visby
 Lovisa;Ekholm;072-5579034;lovisa.ekholm@mail.com;Ängsgränd 3, Täby

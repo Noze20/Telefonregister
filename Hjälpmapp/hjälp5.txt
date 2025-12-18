@@ -1,0 +1,4 @@
+=== TELEFONREGISTER ===
+Detta program låter dig hantera olika register
+med kontaktuppgifter.
+För att komma vidare, använd tangentbordet
