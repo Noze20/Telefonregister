@@ -116,7 +116,8 @@ def välj_register_n(antal, rubrik="Välj register"):
     register_lista = läs_registerlista()
 
     if len(register_lista) < antal:
-        print(f"Minst {antal} krävs")
+        print(f"Minst {antal} krävs, skapa nya listor")
+        skapa_register()
 
     valda = []
 
@@ -140,7 +141,7 @@ def välj_register_n(antal, rubrik="Välj register"):
 
         index = int(val) - 1
         if not (0 <= index < len(register_lista)):
-            print("Index utanför spann.")
+            print("Inte möjligt val")
             continue
 
         valt_register = register_lista[index]
@@ -165,6 +166,19 @@ def välj_register():
     register = Register(registernamn)
 
     menyloop(f"Register: {registernamn}", register_meny(register))
+
+
+def jämför_register():
+    """
+    Kör funktionen väl_två_register() och ansätter valen till två variabler.
+    Om inga register väljs går programmet tillbaka till huvudmenyn.
+    Om två register väljs körs funktionen välj_jämförelsemetod()
+    """
+    register1, register2 = välj_två_register()
+    if not register1 or not register2:
+        print("Jämförelse avbröts eller misslyckades.")
+        return
+    välj_jämförelsemetod(register1, register2)
 
 
 def välj_två_register():
@@ -204,19 +218,6 @@ def välj_jämförelsemetod(register1, register2):
     }
 
     menyloop(f"Jämför: {register1} / {register2}", meny)
-
-
-def jämför_register():
-    """
-    Kör funktionen väl_två_register() och ansätter valen till två variabler.
-    Om inga register väljs går programmet tillbaka till huvudmenyn.
-    Om två register väljs körs funktionen välj_jämförelsemetod()
-    """
-    register1, register2 = välj_två_register()
-    if not register1 or not register2:
-        print("Jämförelse avbröts eller misslyckades.")
-        return
-    välj_jämförelsemetod(register1, register2)
 
 
 def skapa_register():

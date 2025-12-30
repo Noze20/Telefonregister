@@ -3,7 +3,7 @@ class Person:
     """
     Skapar en individ
 
-    Attribut:
+    Parameters:
         efternamn(str):
         förnamn(str):
         mobil(str):

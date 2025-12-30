@@ -19,3 +19,8 @@ Alva;Hedlund;073-6645532;alva.hedlund@mail.com;Forsvägen 5, Kiruna
 Felix;Törngren;076-2349955;felix.torngren@mail.com;Torgvägen 9, Mariestad
 Ines;Wallin;070-8732245;ines.wallin@mail.com;Hagagatan 3, Sala
 Otto;Bäckström;079-3321456;otto.backstrom@mail.com;Parkvägen 2, Jönköping
+Linn;Kvarnström;070-7788990;linn.kvarnstrom@mail.com;Åkervägen 8, Lidköping
+Anton;Hallberg;073-9900112;anton.hallberg@mail.com;Björkvägen 15, Laholm
+Maja;Ekstrand;076-1122334;maja.ekstrand@mail.com;Villagatan 3, Finspång
+Samuel;Löfgren;072-6677889;samuel.lofgren@mail.com;Rosenvägen 10, Ronneby
+Tindra;Sundqvist;079-4455667;tindra.sundqvist@mail.com;Äppelstigen 1, Säffle
