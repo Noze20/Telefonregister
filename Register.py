@@ -160,6 +160,7 @@ class Register:
 
     def lägga_till_i_registret(self):
         """
+        Lägger till en person i registret
         """
         print("Ange personuppgifterna: ")
         efternamn = k.namn_kontroll("Efternamn: ")
